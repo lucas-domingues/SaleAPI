@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sales.API</name>
+    </assembly>
+    <members>
+        <member name="M:Sales.API.Controllers.AuthController.Login(Sales.API.Models.DTOs.LoginRequestDto)">
+            <summary>
+            Authenticates a user and returns a JWT token.
+            </summary>
+            <param name="loginRequest">Login credentials</param>
+            <returns>JWT token if authentication is successful</returns>
+            <response code="200">Returns the JWT token</response>
+            <response code="401">Invalid username or password</response>
+        </member>
+        <member name="M:Sales.API.Controllers.CartController.GetAllCarts(System.Int32,System.Int32,System.String)">
+            <summary>
+            Retrieves a paginated list of carts.
+            </summary>
+            <param name="page">Page number (default: 1)</param>
+            <param name="size">Page size (default: 10)</param>
+            <param name="order">Sorting order (default: "id desc")</param>
+            <returns>Paginated list of carts</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.CartController.GetCartById(System.Int32)">
+            <summary>
+            Retrieves a cart by its ID.
+            </summary>
+            <param name="id">Cart ID</param>
+            <returns>Cart details</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.CartController.CreateCart(Sales.API.Models.Entities.Cart)">
+            <summary>
+            Creates a new cart.
+            </summary>
+            <param name="cart">Cart data</param>
+            <returns>Created cart</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.CartController.UpdateCart(System.Int32,Sales.API.Models.Entities.Cart)">
+            <summary>
+            Updates an existing cart.
+            </summary>
+            <param name="id">Cart ID</param>
+            <param name="cart">Updated cart data</param>
+            <returns>Updated cart</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.CartController.DeleteCart(System.Int32)">
+            <summary>
+            Deletes a cart by its ID.
+            </summary>
+            <param name="id">Cart ID</param>
+        </member>
+        <member name="M:Sales.API.Controllers.ProductsController.GetProducts(System.Int32,System.Int32,System.String)">
+            <summary>
+            Retrieve all products with pagination
+            </summary>
+            <param name="_page">Page number for pagination</param>
+            <param name="_size">Number of products per page</param>
+            <param name="_order">Sorting order</param>
+            <returns>Paginated list of products</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.ProductsController.GetProductById(System.Int32)">
+            <summary>
+            Retrieve product by ID
+            </summary>
+            <param name="id">Product ID</param>
+            <returns>Product object</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.ProductsController.AddProduct(Sales.API.Models.Entities.Product)">
+            <summary>
+            Add a new product
+            </summary>
+            <param name="product">Product object</param>
+            <returns>Created product</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.ProductsController.UpdateProduct(System.Int32,Sales.API.Models.Entities.Product)">
+            <summary>
+            Update an existing product
+            </summary>
+            <param name="id">Product ID</param>
+            <param name="product">Updated product object</param>
+            <returns>Updated product</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.ProductsController.DeleteProduct(System.Int32)">
+            <summary>
+            Delete a product
+            </summary>
+            <param name="id">Product ID</param>
+        </member>
+        <member name="M:Sales.API.Controllers.UserController.GetAllUsers(System.Int32,System.Int32,System.String)">
+            <summary>
+            Retrieve all users
+            </summary>
+            <param name="page">Page number for pagination</param>
+            <param name="size">Number of users per page</param>
+            <param name="order">Ordering criteria</param>
+            <returns>List of users</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.UserController.GetUserById(System.Int32)">
+            <summary>
+            Retrieve user by ID
+            </summary>
+            <param name="id">User ID</param>
+            <returns>User object</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.UserController.CreateUser(Sales.API.Models.Entities.User)">
+            <summary>
+            Create a new user
+            </summary>
+            <param name="user">User object</param>
+            <returns>Created user</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.UserController.UpdateUser(System.Int32,Sales.API.Models.Entities.User)">
+            <summary>
+            Update an existing user
+            </summary>
+            <param name="id">User ID</param>
+            <param name="user">Updated user object</param>
+            <returns>Updated user</returns>
+        </member>
+        <member name="M:Sales.API.Controllers.UserController.DeleteUser(System.Int32)">
+            <summary>
+            Delete a user
+            </summary>
+            <param name="id">User ID</param>
+        </member>
+        <member name="T:Sales.API.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sales.API.Migrations.AddProductEntity">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddProductEntity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddProductEntity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddProductEntity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sales.API.Migrations.AddCartEntity">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddCartEntity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddCartEntity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddCartEntity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sales.API.Migrations.AddUserEntity">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddUserEntity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddUserEntity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AddUserEntity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Sales.API.Migrations.AlterCartEntity">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AlterCartEntity.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AlterCartEntity.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Sales.API.Migrations.AlterCartEntity.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
