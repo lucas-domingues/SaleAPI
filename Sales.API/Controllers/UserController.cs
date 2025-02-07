@@ -29,13 +29,7 @@ namespace Sales.API.Controllers
         public async Task<IActionResult> GetAllUsers([FromQuery] int page = 1, [FromQuery] int size = 10, [FromQuery] string order = "username asc")
         {
             var users = await _userService.GetAllUsersAsync(page, size, order);
-            return Ok(new
-            {
-                data = users,
-                totalItems = users.Count,
-                currentPage = page,
-                totalPages = (int)Math.Ceiling((double)users.Count / size)
-            });
+            return Ok(users);
         }
 
         /// <summary>

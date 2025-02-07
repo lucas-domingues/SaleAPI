@@ -2,6 +2,7 @@
 using Sales.API.Data;
 using Sales.API.Extensions;
 using Sales.API.Interfaces.Services;
+using Sales.API.Models;
 using Sales.API.Models.Entities;
 
 namespace Sales.API.Services
@@ -48,7 +49,7 @@ namespace Sales.API.Services
             }
         }
 
-        public async Task<List<User>> GetAllUsersAsync(int page, int size, string order)
+        public async Task<PaginatedResult<User>> GetAllUsersAsync(int page, int size, string order)
         {
             try
             {
@@ -58,7 +59,17 @@ namespace Sales.API.Services
 
                 query = query.ApplySorting(order);
                 var users = await query.Skip((page - 1) * size).Take(size).ToListAsync();
-                return users;
+
+                var totalItems = await query.CountAsync();
+                var paginatedItems = await query.Skip((page - 1) * size).Take(size).ToListAsync();
+
+                return new PaginatedResult<User>
+                {
+                    Data = paginatedItems,
+                    TotalItems = totalItems,
+                    CurrentPage = page,
+                    TotalPages = (int)Math.Ceiling((double)totalItems / size)
+                };
             }
             catch(Exception ex)
             {

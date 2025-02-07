@@ -10,7 +10,7 @@ namespace Sales.Tests.Tests
         public void Test_Creating_Sale()
         {
             var options = new DbContextOptionsBuilder<SalesDbContext>()
-                .UseInMemoryDatabase(databaseName: "TestDatabase")
+                .UseInMemoryDatabase(databaseName: "SalesDB")
                 .Options;
 
             using var context = new SalesDbContext(options);
