@@ -26,7 +26,7 @@ public class ProductService : IProductService
         {
 
 
-            var query = _context.Products.AsQueryable();
+            var query = _context.Products.Include(p => p.Rating).AsQueryable();
 
             query = query.ApplySorting(order);
 
@@ -68,7 +68,7 @@ public class ProductService : IProductService
     {
         try
         {
-            return await _context.Products.FindAsync(id);
+            return await _context.Products.Include(p => p.Rating).FirstOrDefaultAsync(p => p.Id == id);
         }
         catch (Exception ex)
         {

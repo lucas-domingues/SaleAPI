@@ -23,5 +23,7 @@ namespace Sales.API.Models.Entities
 
     
         public Role Role { get; set; }
+
+        public Guid ExternalID { get; set; } = Guid.NewGuid();
     }
 }

@@ -8,5 +8,7 @@
         public List<CartProduct> Products { get; set; }
 
         public decimal TotalPrice { get; set; } = 0.00m;
+
+        public Guid ExternalID { get; set; } = Guid.NewGuid();
     }
 }
