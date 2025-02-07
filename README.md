@@ -29,6 +29,7 @@ cd Sales.API
    ```
 3. Apply migrations to create the database schema:
    ```bash
+   dotnet ef migrations add InitialCreate
    dotnet ef database update
    ```
 
