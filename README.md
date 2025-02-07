@@ -13,8 +13,8 @@ Before starting, ensure you have the following installed:
 
 ### 1. **Clone the Repository**
 ```bash
-git clone <repository-url>
-cd <project-folder>
+git clone https://github.com/lucas-domingues/SaleAPI.git
+cd Sales.API
 ```
 
 ### 2. **Database Setup**
