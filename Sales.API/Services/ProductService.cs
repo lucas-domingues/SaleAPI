@@ -24,22 +24,20 @@ public class ProductService : IProductService
     {
         try
         {
-
-
             var query = _context.Products.Include(p => p.Rating).AsQueryable();
-
+            
             query = query.ApplySorting(order);
 
-
             var totalItems = await query.CountAsync();
-            var paginatedItems = await query.Skip((page - 1) * size).Take(size).ToListAsync();
+            var totalPages = (int)System.Math.Ceiling(totalItems / (double)size);
+            var data = await query.Skip((page - 1) * size).Take(size).ToListAsync();
 
             return new PaginatedResult<Product>
             {
-                Data = paginatedItems,
                 TotalItems = totalItems,
                 CurrentPage = page,
-                TotalPages = (int)Math.Ceiling((double)totalItems / size)
+                TotalPages = totalPages,
+                Data = data
             };
         }
         catch (Exception ex)
@@ -138,7 +136,9 @@ public class ProductService : IProductService
     {
         try
         {
-            return await _context.Products.Select(p => p.Category).Distinct().ToListAsync();
+            var query = _context.Products.Select(p => p.Category).Distinct();
+            var result = await Task.FromResult(query.ToList());
+            return result;//await _context.Products.Select(p => p.Category).Distinct().ToListAsync();
         }
         catch (Exception ex)
         {
@@ -155,7 +155,7 @@ public class ProductService : IProductService
             if (size <= 0) size = 10;
 
             var query = _context.Products
-                .Where(p => EF.Functions.Like(p.Category, category))
+                .Where(p => p.Category == category)
                 .AsQueryable();
 
             query = query.ApplySorting(order);

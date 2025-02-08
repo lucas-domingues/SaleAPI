@@ -986,6 +986,10 @@
           "totalPrice": {
             "type": "number",
             "format": "double"
+          },
+          "externalID": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -1120,6 +1124,10 @@
           },
           "rating": {
             "$ref": "#/components/schemas/Rating"
+          },
+          "externalID": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
@@ -1192,6 +1200,10 @@
           },
           "role": {
             "$ref": "#/components/schemas/Role"
+          },
+          "externalID": {
+            "type": "string",
+            "format": "uuid"
           }
         },
         "additionalProperties": false
